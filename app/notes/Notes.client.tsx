@@ -1,6 +1,6 @@
 "use client";
 
-import css from "./NotesPage.module.css";
+import css from "./NotePage.module.css";
 
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
@@ -12,11 +12,11 @@ import Pagination from "@/components/Pagination/Pagination";
 import { Loader } from "@/components/Loader/Loader";
 import { ErrorMessage } from "@/components/ErrorMessage/ErrorMessage";
 import { ErrorMessageEmpty } from "@/components/ErrorMessageEmpty/ErrorMessageEmpty";
-import { NoteList } from "@/components/NoteList/NoteList";
+import NoteList from "@/components/NoteList/NoteList";
 import { Modal } from "@/components/Modal/Modal";
 import { NoteForm } from "@/components/NoteForm/NoteForm";
 import { fetchNotes } from "@/lib/api";
-import { SearchBox } from "@/components/SearchBox/SearchBox";
+import SearchBox from "@/components/SearchBox/SearchBox";
 
 interface NotesClientProps {
   initialData: {
@@ -65,9 +65,9 @@ export default function NotesClient({
         <SearchBox onChange={handleChange} />
         {isSuccess && totalPages > 1 && (
           <Pagination
-            page={currentPage}
-            total={totalPages}
-            onChange={setCurrentPage}
+            pageCount={totalPages}
+            forcePage={currentPage}
+            onPageChange={({ selected }) => setCurrentPage(selected)}
           />
         )}
         <button onClick={handleCreateNote} className={css.button}>

@@ -8,8 +8,7 @@ interface ModalProps {
   children: React.ReactNode;
   onClose: () => void;
 }
-
-export default function Modal({ children, onClose }: ModalProps) {
+export function Modal({ children, onClose }: ModalProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();

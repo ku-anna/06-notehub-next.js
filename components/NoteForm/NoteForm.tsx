@@ -11,10 +11,10 @@ import toast from "react-hot-toast";
 
 const NoteFormSchema = Yup.object().shape({
   title: Yup.string()
-    .min(3, "The title must be at least 3 characters long")
-    .max(50, "the title must be 50 characters max")
-    .required("The title is required"),
-  content: Yup.string().max(500, "Content must not exceed 500 characters"),
+    .min(3, "Title must be at least 3 characters")
+    .max(50, "Title must be at most 50 characters")
+    .required("Title is required"),
+  content: Yup.string().max(500, "Content must be at most 500 characters"),
   tag: Yup.string()
     .oneOf(["Todo", "Work", "Personal", "Meeting", "Shopping"], "Invalid tag")
     .required("Tag is required"),
@@ -28,7 +28,7 @@ const formValues: FormValues = {
 interface NoteFormProps {
   onClose: () => void;
 }
-export default function NoteForm({ onClose }: NoteFormProps) {
+export function NoteForm({ onClose }: NoteFormProps) {
   const fieldId = useId();
   const queryClient = useQueryClient();
 
