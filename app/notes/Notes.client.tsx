@@ -16,7 +16,7 @@ import NoteList from "@/components/NoteList/NoteList";
 import { Modal } from "@/components/Modal/Modal";
 import { NoteForm } from "@/components/NoteForm/NoteForm";
 import { fetchNotes } from "@/lib/api";
-import SearchBox from "@/components/SearchBox/SearchBox";
+import { SearchBox } from "@/components/SearchBox/SearchBox";
 
 interface NotesClientProps {
   initialData: {
