@@ -65,9 +65,9 @@ export default function NotesClient({
         <SearchBox onChange={handleChange} />
         {isSuccess && totalPages > 1 && (
           <Pagination
-            pageCount={totalPages}
-            forcePage={currentPage}
-            onPageChange={({ selected }) => setCurrentPage(selected)}
+            page={currentPage}
+            total={totalPages}
+            onChange={setCurrentPage}
           />
         )}
         <button onClick={handleCreateNote} className={css.button}>
