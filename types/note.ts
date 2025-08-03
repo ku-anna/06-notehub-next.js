@@ -1,10 +1,10 @@
 export interface Note {
-  id: number;
+  id: string;
   title: string;
   content: string;
   tag: NoteTag;
   createdAt: string;
-  updatedAt?: string;
+  updatedAt: string;
 }
 
 export interface FormValues {
